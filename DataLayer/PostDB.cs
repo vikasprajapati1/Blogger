@@ -82,7 +82,7 @@ namespace DataLayer
         {
            // logger.LogInformation($"BrandDB.cs - Update method - Updating Brand in database {Brand}");
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
-            DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Brand_Update);
+            DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_Update);
             con.Open();
             db.AddInParameterString("@Title", post.Title);
             db.AddInParameterString("@Description", post.Description);

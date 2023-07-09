@@ -73,6 +73,19 @@ namespace DataLayer
 
         public const string usp_Post_GetById = @"Select * from `Post` where id=@Iid";
         public const string usp_Post_Delete= @"DELETE FROM Post WHERE Id = @Iid;";
+        public const string usp_Post_Update = @"UPDATE  Post SET
+                                                            Title = @Title ,
+                                                            Description = @Description , 
+                                                           Content = @Content,
+Status=@Status,
+                                                            CreatedBy = @CreatedBy ,
+                                                            CreatedOnUtc = @CreatedOnUtc,
+                                                            CreatedIp=@CreatedIp,
+                                                            UpdatedBy = @UpdatedBy,
+                                                            UpdatedOnUtc = @UpdatedOnUtc,
+                                                            UpdatedIp = @UpdatedIp
+                                                            WHERE
+                                                            Id = @Iid";
         #endregion
 
     }
