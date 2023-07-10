@@ -17,12 +17,17 @@ namespace Blogger.Pages.Post
         {
 
         }
-        public void OnPost()
+        public void OnPost(IFormCollection collection)
         {
             POST post = new POST();
-            post.Title = "Title";
-            post.Description = "Description";
-            post.Content = "Contenttttt";
+            post.Title = collection["title"].ToString();
+            post.Description = collection["description"].ToString();
+            post.Content = collection["content"].ToString();
+            post.CreatedBy = "System";
+            post.ModifiedBy = "System";
+            post.CreatedOnUtc =DateTime.Now;
+            post.CreatedIp = HttpContext.Connection.RemoteIpAddress?.ToString();
+           
 
             _postRepository.Add(post);
 

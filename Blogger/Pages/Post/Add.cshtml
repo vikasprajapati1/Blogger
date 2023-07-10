@@ -4,19 +4,41 @@
 }
 <div class="container">
     <h1>Create Post</h1>
-    <form  method="post">
+    <form  method="post" id="frm">
         <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            <input type="text" class="form-control" id="description" name="description" rows="3"></input>
         </div>
         <div class="form-group">
             <label for="content">Content:</label>
             <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button onclick="CheckValidation()" type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
+
+@section Scripts{
+     <script src="https://cdn.tiny.cloud/1/cwjnsqsfckfj4e1x3fjkrygw0ahetbt164rc7vs3obdn1qeh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
+
+        function CheckValidation(){
+            debugger
+            document.getElementById("frm").submit();
+        }
+    </script>
+}

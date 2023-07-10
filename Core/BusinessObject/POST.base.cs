@@ -16,7 +16,7 @@ namespace Core.BusinessObject
         public int Status { get; set; }    
         public int AuthorId { get; set; }
         public string Tags { get; set; }
-
+        public POST() { }
 
         public POST(IDataReader reader) : base(reader)
         {
