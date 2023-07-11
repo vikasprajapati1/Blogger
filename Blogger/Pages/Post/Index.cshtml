@@ -2,3 +2,19 @@
 @model Blogger.Pages.Post.IndexModel
 @{
 }
+
+
+<div class="row">
+	
+		@if(Model.Posts!=null && Model.Posts.Count >0){
+			@foreach(var post in Model.Posts){
+				<div class="col-md-4">
+				<div class="card">
+					<div class="card-header">@post.Title</div>
+					<div class="card-body">@post.Description</div>
+				</div>
+				</div>
+			}
+		}
+	
+</div>

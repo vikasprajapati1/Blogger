@@ -50,5 +50,12 @@ namespace ServiceLayer
         {
             throw new NotImplementedException();
         }
+        public List<POST> GetAll()
+        {
+            List<POST> posts = new List<POST>();
+
+            posts = _postRepository.GetAll();
+            return posts;
+        }
     }
 }

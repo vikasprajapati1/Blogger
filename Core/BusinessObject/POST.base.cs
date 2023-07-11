@@ -25,7 +25,6 @@ namespace Core.BusinessObject
             Description = DBNull.Value != reader["Description"] ? (string)reader["Description"] : default(string);
             Content = DBNull.Value != reader["Content"] ? (string)reader["Content"] : default(string);
             Status = DBNull.Value != reader["Status"] ? (int)reader["Status"] : default(int);
-            Tags = DBNull.Value != reader["Tags"] ? (string)reader["Tags"] : default(string);
             AuthorId = DBNull.Value != reader["AuthorId"] ? (int)reader["AuthorId"] : default(int);
            
            

@@ -14,7 +14,7 @@ namespace Core.Repositories
      
         void Update(T entity);
         void Remove(T entity);
-     
+        
         
     }
 }

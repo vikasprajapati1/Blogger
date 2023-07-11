@@ -45,6 +45,26 @@ namespace DataLayer
             //_logger.LogInformation("Added User To DataBase Successfull");
         }
 
+        public List<POST> GetAll()
+        {
+            //_logger.LogInformation($"BrandDB.cs - GetById method - Populating brand details from database {id}");
+            DbConnection con = ConnectionFactory.CreateConnection(_configuration);
+            DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_getAll);
+            con.Open();
+            
+            IDataReader reader = db.ExecuteReader();
+            List<POST> postList = new();
+            while (reader.Read())
+            {
+                POST post = new POST(reader);
+                postList.Add(post);
+
+            }
+            reader.Close();
+            con.Close();
+            // _logger.LogInformation($"BrandDB.cs - GetById method - Populated details for Brands from database {id}");
+            return postList;
+        }
 
         public POST GetById(int id)
         {

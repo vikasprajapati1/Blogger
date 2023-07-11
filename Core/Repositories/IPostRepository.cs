@@ -9,6 +9,6 @@ namespace Core.Repositories
 {
     public interface IPostRepository:IRepository<POST>
     {
-       
+       List<POST> GetAll();
     }
 }

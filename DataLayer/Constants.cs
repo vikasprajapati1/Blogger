@@ -86,6 +86,8 @@ Status=@Status,
                                                             UpdatedIp = @UpdatedIp
                                                             WHERE
                                                             Id = @Iid";
+
+        public const string usp_Post_getAll = @"Select * from Post";
         #endregion
 
     }
