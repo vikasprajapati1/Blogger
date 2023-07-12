@@ -1,0 +1,14 @@
+﻿@page
+@model Blogger.Pages.Post.DetailModel
+@{
+}
+
+<div class="row">
+	<div class="col-md-12">
+		Title: @Model.Title
+
+		Description: @Model.Description
+
+		Content: @Html.Raw(Model.Content)
+	</div>
+</div>
