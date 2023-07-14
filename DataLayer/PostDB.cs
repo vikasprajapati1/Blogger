@@ -20,7 +20,7 @@ namespace DataLayer
             _configuration = configuration;
             if (string.IsNullOrWhiteSpace(_configuration.GetConnectionString("DefaultConnection")))
             {
-                // _logger.LogError("Connection string is missing. Cannot initialize the database");
+               
                 throw new ArgumentException("Connection string [DefaultConnection] is missing. Set it up in appsettings.json");
 
             }
@@ -29,7 +29,7 @@ namespace DataLayer
 
         public void Add(POST post)
         {
-            //  _logger.LogInformation("start Adding tenantSettings to DB");
+          
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
             DbCommand cmd = con.GetSqlStringComamnd(SQLCommands.usp_Post_Add);
             con.Open();
@@ -42,12 +42,12 @@ namespace DataLayer
             post.AddCreateParams(cmd);
             post.Id = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
-            //_logger.LogInformation("Added User To DataBase Successfull");
+          
         }
 
         public List<POST> GetAll()
         {
-            //_logger.LogInformation($"BrandDB.cs - GetById method - Populating brand details from database {id}");
+           
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
             DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_getAll);
             con.Open();
@@ -62,13 +62,13 @@ namespace DataLayer
             }
             reader.Close();
             con.Close();
-            // _logger.LogInformation($"BrandDB.cs - GetById method - Populated details for Brands from database {id}");
+           
             return postList;
         }
 
         public POST GetById(int id)
         {
-            //_logger.LogInformation($"BrandDB.cs - GetById method - Populating brand details from database {id}");
+          
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
             DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_GetById);
             con.Open();
@@ -82,25 +82,25 @@ namespace DataLayer
             }
             reader.Close();
             con.Close();
-           // _logger.LogInformation($"BrandDB.cs - GetById method - Populated details for Brands from database {id}");
+          
             return post;
         }
 
         public void Remove(POST entity)
         {
-           // _logger.LogInformation($"BrandDB.cs - Remove method - Deleting Brand from database {brand}");
+          
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
             con.Open();
             DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_Delete);
             db.AddInParameterInt("@Iid", entity.Id);
             db.ExecuteNonQuery();
             con.Close();
-           // _logger.LogInformation($"BrandDB.cs - Remove method - Delete Brand from database {brand}");
+           
         }
 
         public void Update(POST post)
         {
-           // logger.LogInformation($"BrandDB.cs - Update method - Updating Brand in database {Brand}");
+          
             DbConnection con = ConnectionFactory.CreateConnection(_configuration);
             DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_Post_Update);
             con.Open();
@@ -114,7 +114,7 @@ namespace DataLayer
             post.AddUpdateParams(db);
             db.ExecuteNonQuery();
             con.Close();
-           // _logger.LogInformation($"BrandDB.cs - Update method - Updated Brand in database{Brand}");
+          
         }
     }
 }
