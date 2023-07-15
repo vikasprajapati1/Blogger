@@ -10,7 +10,7 @@
 			@foreach(var post in Model.Posts){
 				<div class="col-md-4">
 				<div class="card">
-					<div class="card-header">@post.Title</div>
+					<div class="card-header"><a href="/Post/Detail?id=@post.Id">@post.Title</a> </div>
 					<div class="card-body">@post.Description</div>
 				</div>
 				</div>

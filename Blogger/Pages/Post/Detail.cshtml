@@ -3,12 +3,51 @@
 @{
 }
 
+@*
+@section Css {
+    <style>
+        .blog-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .blog-description {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-content {
+            margin-bottom: 40px;
+        }
+
+            .blog-content h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .blog-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+    </style>
+}*@
 <div class="row">
 	<div class="col-md-12">
-		Title: @Model.Title
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<h1 class="text-center">@Model.Title</h1>
+					<p class="text-center">@Model.Description</p>
+					<hr>
+					<div class="blog-content">
+						<h2>@Model.Title</h2>
+						<p>@Html.Raw(Model.Content)</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-		Description: @Model.Description
-
-		Content: @Html.Raw(Model.Content)
-	</div>
-</div>
