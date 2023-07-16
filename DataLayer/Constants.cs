@@ -77,7 +77,7 @@ namespace DataLayer
                                                             Title = @Title ,
                                                             Description = @Description , 
                                                            Content = @Content,
-Status=@Status,
+                                                            Status=@Status,
                                                             CreatedBy = @CreatedBy ,
                                                             CreatedOnUtc = @CreatedOnUtc,
                                                             CreatedIp=@CreatedIp,
