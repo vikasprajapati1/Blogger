@@ -42,6 +42,8 @@ namespace DataLayer
                                                             @UpdatedIp 
                                                             );SELECT LAST_INSERT_ID();";
 
+        public const string usp_User_GetByEmail = @"select * from user where Email=@Email";
+
         #endregion
 
         #region Post

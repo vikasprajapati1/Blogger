@@ -50,6 +50,12 @@ namespace ServiceLayer
             // _logger.LogInformation("Got All BaseUsers from ServiceLayer");
             throw new NotImplementedException();
         }
+
+        public BaseUser GetByEmail(string email)
+        {
+            return _baseUserRepository.GetByEmail(email);
+        }
+
         /// <summary>
         /// Fetching a base user by Id through GetById method
         /// </summary>

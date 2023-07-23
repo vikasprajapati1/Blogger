@@ -9,5 +9,6 @@ namespace Core.Repositories
 {
     public interface IBaseUserRepository:IRepository<BaseUser>
     {
+        public BaseUser GetByEmail(string email);
     }
 }

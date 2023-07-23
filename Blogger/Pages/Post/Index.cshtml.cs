@@ -1,10 +1,12 @@
 using Core.BusinessObject;
 using Core.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Blogger.Pages.Post
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly IPostRepository _postRepository;

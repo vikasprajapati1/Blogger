@@ -9,5 +9,6 @@ namespace Core.Services
 {
     public interface IBaseUserService:IService<BaseUser>
     {
+     public  BaseUser GetByEmail(string email);
     }
 }

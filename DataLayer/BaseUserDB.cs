@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -50,8 +51,24 @@ namespace DataLayer
             //_logger.LogInformation("Added User To DataBase Successfull");
         }
 
-      
-     
+        public BaseUser GetByEmail(string email)
+        {
+           
+            DbConnection con = ConnectionFactory.CreateConnection(_configuration);
+            DbCommand db = con.GetSqlStringComamnd(SQLCommands.usp_User_GetByEmail);
+            con.Open();
+            db.AddInParameter("@Email", DbType.String, email);
+            IDataReader reader = db.ExecuteReader();
+            BaseUser user = null;
+            while (reader.Read())
+            {
+                 user = new BaseUser(reader);
+            }
+            reader.Close();
+            con.Close();
+            return user;
+        }
+
         public BaseUser GetById(int id)
         {
             throw new NotImplementedException();
