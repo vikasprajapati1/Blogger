@@ -10,6 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServiceConnector();
 builder.Services.AddReposioryConnector();
+builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", option =>
+{
+    option.Cookie.Name = "MyCookieAuth";
+    option.LoginPath = "/Account/Login";
+    option.AccessDeniedPath = "/Account/AccessDenied";
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly",
+        policy => policy.RequireClaim("Admin","True"));
+});
 
 
 //builder.Services.AddScoped<IBaseUserRepository, BaseUserDB>();
@@ -28,7 +40,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
