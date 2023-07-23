@@ -1,0 +1,33 @@
+﻿@page
+@model Blogger.Pages.Account.RegisterModel
+@{
+}
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Registration Form</h2>
+        <form method="post">
+          <div class="form-group">
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" id="name" value="@Model.Name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label asp-for="Email"></label>
+            <input type="email" class="form-control" id="email" value="@Model.Email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" value="@Model.Password" placeholder="Enter your password">
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" @Model.Password placeholder="Confirm your password">
+          </div>
+         
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>

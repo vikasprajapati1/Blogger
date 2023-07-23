@@ -1,0 +1,54 @@
+﻿@page
+@model Blogger.Pages.Account.LoginModel
+@{
+}
+<div class="container">
+	<div class="row justify-content-center mt-5">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title text-center">Sign In</h5>
+					<form method="post" id="loginfrm">
+						<div class="form-group">
+							<label for="email">Email address</label>
+							<input type="email" class="form-control" id="email" asp-for="Username" placeholder="Enter email">
+							<span class="text-danger" asp-validation-for="Username"></span>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" class="form-control" asp-for="Password" id="password" placeholder="Enter password">
+							<span class="text-danger" asp-validation-for="Password"></span>
+						</div>
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="rememberMe">
+							<label class="form-check-label" for="rememberMe">Remember me</label>
+						</div>
+						<a href="javascript:" onclick="checkValidation();" class="btn btn-primary btn-block">Sign In</a>
+					</form>
+					<p class="text-center mt-3">Don't have an account? <a href="#">Sign Up</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts{
+	<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include jQuery Validation plugin -->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+	<script type="text/javascript">
+		function checkValidation() {
+			debugger;
+		
+			let IsFormValid = $("#loginfrm").valid()
+			if(!IsFormValid){
+				return false;
+			}
+			document.getElementById("loginfrm").submit();
+		}
+	</script>
+                            }

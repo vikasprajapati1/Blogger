@@ -1,0 +1,63 @@
+﻿@page
+@model Blogger.Pages.Account.AccessDeniedModel
+@{
+}
+
+@section Styles{
+	<!-- Add Bootstrap CSS link here (Replace 'bootstrap.css' with the actual path to your Bootstrap CSS file) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+    }
+
+    .access-denied-container {
+      max-width: 400px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    .access-denied-icon {
+      font-size: 100px;
+      color: #f22;
+      margin-bottom: 20px;
+    }
+
+    .access-denied-heading {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .access-denied-message {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .back-to-home {
+      margin-top: 30px;
+    }
+  </style>
+}
+
+
+    <div class="access-denied-container">
+        <div class="access-denied-icon">
+            <!-- Use a relevant icon here (e.g., Font Awesome) -->
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="access-denied-heading">Access Denied</div>
+        <div class="access-denied-message">
+            Sorry, you don't have permission to access this page.
+        </div>
+        <a href="/" class="btn btn-primary back-to-home">Back to Home</a>
+    </div>
+
+    @section Scripts{
+    <!-- Add Bootstrap JS and Font Awesome (if using their icons) here (Replace 'bootstrap.js' and 'fontawesome.js' with the actual paths) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Use Font Awesome (if you prefer) -->
+    <script src="https://kit.fontawesome.com/your_font_awesome_kit.js" crossorigin="anonymous"></script>
+    }
