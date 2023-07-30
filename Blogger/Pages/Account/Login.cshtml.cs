@@ -39,14 +39,14 @@ namespace Blogger.Pages.Account
                     new Claim("Admin", user.IsSuperAdmin.ToString()),
 
             };
-            var identity = new ClaimsIdentity(claims, "MyCookieAuth");
-            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+                var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
-            return RedirectToPage("/Post/Index");
-        }
+                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
+                return RedirectToPage("/Post/Index");
+            }
 
             return Page();
+        }
     }
-}
 }

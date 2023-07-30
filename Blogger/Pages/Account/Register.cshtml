@@ -2,8 +2,51 @@
 @model Blogger.Pages.Account.RegisterModel
 @{
 }
+@section Styles{
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
 
-  <div class="container">
+        .signup-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .signup-container h2 {
+                text-align: center;
+                margin-bottom: 30px;
+                color: #555;
+            }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn-signup {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .btn-signup:hover {
+                background-color: #0056b3;
+            }
+    </style>
+}
+@*  <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <h2 class="text-center mb-4">Registration Form</h2>
@@ -30,4 +73,56 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>*@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Registration Form</h2>
+            <form method="post" id="registerFrm">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                        <input type="text" class="form-control" asp-for="Name" id="name" value="@Model.Name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="email" class="form-control" asp-for="Email" id="email" value="@Model.Email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" asp-for="Password" id="password" value="@Model.Password" placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" class="form-control" asp-for="Password" id="confirm-password"  placeholder="Confirm your password">
+                </div>
+
+                <button type="submit" onclick="checkValidation()" class="btn btn-primary btn-block">Register</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include jQuery Validation plugin -->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script>
+        function checkValidation() {
+            debugger;
+            let IsFormValid = $("#registerFrm").valid()
+            if (!IsFormValid) {
+                return false;
+            }
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            if(password !=confirmPassword){
+                return false;
+            }
+            document.getElementById("registerFrm").submit();
+        }
+    </script>
+
+}
