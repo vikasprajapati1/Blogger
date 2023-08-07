@@ -2,6 +2,7 @@
 	<form method="post" class="form-check-inline" asp-page="/Account/Logout">
 		Welcome @User.Identity.Name
 		<button type="submit" class="m-lg-2 btn btn-link">Logout</button>
+		<a class="btn" href="/Post/Add">Create Post</a>
 	</form>
 }
 else{

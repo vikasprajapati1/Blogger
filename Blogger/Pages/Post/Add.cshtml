@@ -2,6 +2,9 @@
 @model Blogger.Pages.Post.AddModel
 @{
 }
+@section Styles{
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+}
 <div class="container">
     <h1>Create Post</h1>
     <form  method="post" id="frm">
@@ -15,6 +18,8 @@
         </div>
         <div class="form-group">
             <label for="content">Content:</label>
+            <input type="hidden" id="content" name="content" />
+                <div  id="editor"></div>
             <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
         </div>
         <button onclick="CheckValidation()" type="submit" class="btn btn-primary">Create</button>
@@ -22,7 +27,8 @@
 </div>
 
 @section Scripts{
-     <script src="https://cdn.tiny.cloud/1/cwjnsqsfckfj4e1x3fjkrygw0ahetbt164rc7vs3obdn1qeh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/cwjnsqsfckfj4e1x3fjkrygw0ahetbt164rc7vs3obdn1qeh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -35,9 +41,13 @@
                 { value: 'Email', title: 'Email' },
             ]
         });
+        var quill = new Quill('#editor', {
+            theme: 'snow' // 'snow' is one of the available themes, others are 'bubble' and 'core'
+        });
 
         function CheckValidation(){
             debugger
+            document.getElementById("content").value = quill.root.innerHTML;
             document.getElementById("frm").submit();
         }
     </script>
